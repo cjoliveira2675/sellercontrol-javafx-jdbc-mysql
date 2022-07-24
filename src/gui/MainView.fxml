@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<ScrollPane hmax="600.0" maxHeight="380.0" maxWidth="560.0" minHeight="340.0" minWidth="520.0" prefHeight="360.0" prefWidth="540.0" vmax="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane hmax="600.0" maxHeight="380.0" maxWidth="560.0" minHeight="340.0" minWidth="520.0" prefHeight="360.0" prefWidth="540.0" vmax="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
    <content>
       <VBox maxHeight="536.0" maxWidth="536.0" minHeight="334.0" minWidth="536.0" prefHeight="353.0" prefWidth="536.0">
          <children>
@@ -20,21 +19,21 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Geral">
                   <items>
-                        <MenuItem mnemonicParsing="false" text="Empresa" />
-                        <MenuItem mnemonicParsing="false" text="Preferências" />
-                        <MenuItem mnemonicParsing="false" text="Trocar usuário" />
-                    <MenuItem mnemonicParsing="false" text="Sair" />
+                        <MenuItem fx:id="menuItemEmpresa" mnemonicParsing="false" onAction="#onMenuItemEmpresaAction" text="Empresa" />
+                        <MenuItem fx:id="menuItemPrefGeral" mnemonicParsing="false" onAction="#onMenuItemPrefGeralAction" text="Preferências" />
+                        <MenuItem fx:id="menuItemTrocarUser" mnemonicParsing="false" onAction="#onMenuItemTrocarUserAction" text="Trocar usuário" />
+                    <MenuItem fx:id="menuItemSair" mnemonicParsing="false" onAction="#onMenuItemSairAction" text="Sair" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Usuário">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Usuários" />
-                        <MenuItem mnemonicParsing="false" text="Preferências" />
+                    <MenuItem fx:id="menuItemUsuarios" mnemonicParsing="false" onAction="#onMenuItemUsuariosAction" text="Usuários" />
+                        <MenuItem fx:id="menuItemPrefUsers" mnemonicParsing="false" onAction="#onMenuItemPrefUsersAction" text="Preferências" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Suporte">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Sobre" />
+                    <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#onMenuItemAboutAction" text="Sobre" />
                   </items>
                 </Menu>
               </menus>
@@ -50,32 +49,32 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="160.0" text="Clientes" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Button fx:id="btnClientes" mnemonicParsing="false" onAction="#onBtnClientesAction" prefHeight="54.0" prefWidth="160.0" text="Clientes" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="160.0" text="Vendas" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Button fx:id="btnVendas" mnemonicParsing="false" onAction="#onBtnVendasAction" prefHeight="54.0" prefWidth="160.0" text="Vendas" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets right="20.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="160.0" text="Fornecedores" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Button fx:id="btnFornecedores" mnemonicParsing="false" onAction="#onBtnFornecedoresAction" prefHeight="54.0" prefWidth="160.0" text="Fornecedores" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="160.0" text="Produtos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Button fx:id="btnProdutos" mnemonicParsing="false" onAction="#onBtnProdutosAction" prefHeight="54.0" prefWidth="160.0" text="Produtos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets right="20.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="160.0" text="Políticas comerciais" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="btnPoliticasCom" mnemonicParsing="false" onAction="#onBtnPoliticasComAction" prefHeight="54.0" prefWidth="160.0" text="Políticas comerciais" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="160.0" text="Relatórios" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="btnRelatorios" mnemonicParsing="false" onAction="#onBtnRelatoriosAction" prefHeight="54.0" prefWidth="160.0" text="Relatórios" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets right="20.0" />
                      </GridPane.margin>
