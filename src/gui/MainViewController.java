@@ -25,17 +25,79 @@ public class MainViewController implements Initializable{
 	@FXML
 	private MenuItem menuItemAbout;
 	@FXML
-	private Button btnClientes;
+	private Button btnVendasPedidoVender;
 	@FXML
-	private Button btnVendas;
+	private Button btnVendasPedidoPesquisar;
 	@FXML
-	private Button btnFornecedores;
+	private Button btnVendasPedidoImprimir;
 	@FXML
-	private Button btnProdutos;
+	private Button btnVendasPoliticasComNova;
 	@FXML
-	private Button btnPoliticasCom;
+	private Button btnVendasPoliticasComFiltrar;
 	@FXML
-	private Button btnRelatorios;
+	private Button btnVendasPoliticasComCobrancas;
+	@FXML
+	private Button btnVendasPoliticasComPlanosPgto;
+	@FXML
+	private Button btnCaixaContasReceberBaixar;
+	@FXML
+	private Button btnCaixaContasReceberDesdobrar;
+	@FXML
+	private Button btnCaixaContasReceberAdiar;
+	@FXML
+	private Button btnCaixaContasPagarBaixar;
+	@FXML
+	private Button btnCaixaContasPagarDesdobrar;
+	@FXML
+	private Button btnCaixaContasPagarAdiar;
+	@FXML
+	private Button btnCaixaFluxoAtualizar;
+	@FXML
+	private Button btnProdutosProdutoNovo;
+	@FXML
+	private Button btnProdutosProdutoBuscaDepto;
+	@FXML
+	private Button btnProdutosProdutoBuscaSecao;
+	@FXML
+	private Button btnProdutosProdutoBuscaFornec;
+	@FXML
+	private Button btnProdutosProdutoPesquisar;
+	@FXML
+	private Button btnProdutosProdutoImprimir;
+	@FXML
+	private Button btnProdutosEstoqueNovaEntrada;
+	@FXML
+	private Button btnProdutosEstoqueBuscaDepto;
+	@FXML
+	private Button btnProdutosEstoqueBuscaSecao;
+	@FXML
+	private Button btnProdutosEstoqueBuscaFornec;
+	@FXML
+	private Button btnProdutosEstoquePesquisar;
+	@FXML
+	private Button btnProdutosEstoqueImprimir;
+	@FXML
+	private Button btnProdutosTabPrecoBuscaDepto;
+	@FXML
+	private Button btnProdutosTabPrecoBuscaSecao;
+	@FXML
+	private Button btnProdutosTabPrecoBuscaFornec;
+	@FXML
+	private Button btnProdutosTabPrecoPesquisar;
+	@FXML
+	private Button btnProdutosTabPrecoImprimir;
+	@FXML
+	private Button btnClientesNovo;
+	@FXML
+	private Button btnClientesPesquisar;
+	@FXML
+	private Button btnClientesImprimir;
+	@FXML
+	private Button btnFornecedoresNovo;
+	@FXML
+	private Button btnFornecedoresPesquisar;
+	@FXML
+	private Button btnFornecedoresImprimir;
 	
 	@FXML
 	public void onMenuItemEmpresaAction() {
@@ -73,34 +135,161 @@ public class MainViewController implements Initializable{
 	}
 	
 	@FXML
-	public void onBtnClientesAction() {
-		System.out.println("Janela de clientes");
+	public void onBtnVendasPedidoVenderAction() {
+		System.out.println("Janela de confecção de pedido");
 	}
 	
 	@FXML
-	public void onBtnVendasAction() {
-		System.out.println("Janela de vendas");
+	public void onBtnVendasPedidoPesquisarAction() {
+		System.out.println("Exibe resultado da pesquisa na tabela pedidos");
 	}
 	
 	@FXML
-	public void onBtnFornecedoresAction() {
-		System.out.println("Janela de fornecedores");
+	public void onBtnVendasPedidoImprimirAction() {
+		System.out.println("Imprime relatório de pedidos");
 	}
 	
 	@FXML
-	public void onBtnProdutosAction() {
-		System.out.println("Janela de produtos");
+	public void onBtnVendasPoliticasComNovaAction() {
+		System.out.println("Janela de cadastro de políticas comerciais");
 	}
 	
 	@FXML
-	public void onBtnPoliticasComAction() {
-		System.out.println("Janela de politicas comerciais");
+	public void onBtnVendasPoliticasComFiltrarAction() {
+		System.out.println("Exibe resultado da pesquisa na tabela politicas comerciais");
 	}
 	
 	@FXML
-	public void onBtnRelatoriosAction() {
-		System.out.println("Janela de relatorios");
+	public void onBtnVendasPoliticasComCobrancasAction() {
+		System.out.println("Janela de cobranças");
 	}
+	
+	@FXML
+	public void onBtnVendasPoliticasComPlanosPgtoAction() {
+		System.out.println("Janela de Planos de pagamento");
+	}
+	
+	@FXML
+	public void onBtnCaixaContasReceberBaixarAction() {
+		System.out.println("Baixar título selecionado");
+	}
+	
+	@FXML
+	public void onbtnCaixaContasReceberDesdobrarAction() {
+		System.out.println("Desdobrar título selecionado");
+	}
+	
+	@FXML
+	public void onBtnCaixaContasReceberAdiarAction() {
+		System.out.println("Adiar título selecionado");
+	}
+	
+	@FXML
+	public void onBtnCaixaContasPagarBaixarAction() {
+		System.out.println("Baixar despesa selecionada");
+	}
+	
+	@FXML
+	public void onBtnCaixaContasPagarDesdobrarAction() {
+		System.out.println("Desdobrar despesa selecionada");
+	}
+	
+	@FXML
+	public void onBtnCaixaContasPagarAdiarAction() {
+		System.out.println("Adiar despesa selecionada");
+	}
+	
+	@FXML
+	public void onbtnCaixaFluxoAtualizarAction() {
+		System.out.println("Atualizar balanço caixa");
+	}
+	
+	@FXML
+	public void onBtnProdutosProdutoNovoAction() {
+		System.out.println("Janela de cadastro de produto");
+	}
+	
+	@FXML
+	public void onBtnBuscaDeptoAction() {
+		System.out.println("Janela de pesquisa de departamento");
+	}
+	
+	@FXML
+	public void onBtnBuscaSecaoAction() {
+		System.out.println("Janela de pesquisa de seção");
+	}
+	
+	@FXML
+	public void onBtnBuscaFornecAction() {
+		System.out.println("Janela de pesquisa de fornecedor");
+	}
+	
+	@FXML
+	public void onBtnProdutosProdutoPesquisarAction() {
+		System.out.println("Exibe resultado da pesquisa na tabela produtos");
+	}
+	
+	@FXML
+	public void onBtnProdutosProdutoImprimirAction() {
+		System.out.println("Imprime resultado da pesquisa da tabela produtos");
+	}
+	
+	@FXML
+	public void onBtnProdutosEstoqueNovaEntradaAction() {
+		System.out.println("Janela de entrada de produtos");
+	}
+	
+	@FXML
+	public void onBtnProdutosEstoquePesquisarAction() {
+		System.out.println("Exibe resultado da pesquisa nas tabelas estoque");
+	}
+	
+	@FXML
+	public void onBtnProdutosEstoqueImprimirAction() {
+		System.out.println("Imprime resultado da pesquisa nas tabelas estoque selecionadas");
+	}
+	
+	@FXML
+	public void onBtnProdutosTabPrecoPesquisarAction() {
+		System.out.println("Exibe resultado da pesquisa na tabela tab preços");
+	}
+	
+	@FXML
+	public void onBtnProdutosTabPrecoImprimirAction() {
+		System.out.println("Imprime resultado da pesquisa na tabela tab preços");
+	}
+	
+	@FXML
+	public void onBtnClientesNovoAction() {
+		System.out.println("Janela de cadastro de clientes");
+	}
+	
+	@FXML
+	public void onBtnClientesPesquisarAction() {
+		System.out.println("Exibe o resultado da pesquisa de clientes na tabela");
+	}
+	
+	@FXML
+	public void onBtnClientesImprimirAction() {
+		System.out.println("Imprime o resultado da pesquisa de clientes na tabela");
+	}
+	
+	@FXML
+	public void onbtnFornecedoresNovoAction() {
+		System.out.println("Janela de cadastro de fornecedor");
+	}
+	
+	@FXML
+	public void onBtnFornecedoresPesquisarAction() {
+		System.out.println("Exibe o resultado da pesquisa de fornecedor na tabela");
+	}
+	
+	@FXML
+	public void onBtnFornecedoresImprimirAction() {
+		System.out.println("Imprime o resultado da pesquisa de fornecedor na tabela");
+	}
+	
+	
 	
 	@Override
 	public void initialize(URL uri, ResourceBundle rb) {

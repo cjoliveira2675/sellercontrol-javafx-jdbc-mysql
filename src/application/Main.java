@@ -19,7 +19,7 @@ public class Main extends Application {
 			primaryStage.setResizable(false);
 			Scene mainScene = new Scene(scrollPane);
 			primaryStage.setScene(mainScene);
-			primaryStage.setTitle("Seller Control");
+			primaryStage.setTitle("Minhas Vendas");
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
