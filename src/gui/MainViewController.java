@@ -1,12 +1,18 @@
 package gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class MainViewController implements Initializable{
 
@@ -66,6 +72,12 @@ public class MainViewController implements Initializable{
 	private Button btnProdutosProdutoImprimir;
 	@FXML
 	private Button btnProdutosEstoqueNovaEntrada;
+	@FXML
+	private Button btnProdutosEstoqueDepartamentos;
+	@FXML
+	private Button btnProdutosEstoqueSecoes;
+	@FXML
+	private Button btnProdutosEstoqueMarcas;
 	@FXML
 	private Button btnProdutosEstoqueBuscaDepto;
 	@FXML
@@ -136,7 +148,19 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	public void onBtnVendasPedidoVenderAction() {
-		System.out.println("Janela de confecção de pedido");
+		try {
+			Stage s1 = new Stage();
+	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormPedido.fxml"));
+	        Scene scene = new Scene(root);
+	        s1.setResizable(false);
+	        s1.setScene(scene);
+	        s1.initModality(Modality.APPLICATION_MODAL);
+	        s1.setTitle("Pedido de Venda");
+	        s1.show();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 	
 	@FXML
@@ -206,7 +230,19 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	public void onBtnProdutosProdutoNovoAction() {
-		System.out.println("Janela de cadastro de produto");
+		try {
+			Stage s1 = new Stage();
+	        Parent root = FXMLLoader.load(getClass().getResource("/gui/CadastroProduto.fxml"));
+	        Scene scene = new Scene(root);
+	        s1.setResizable(false);
+	        s1.setScene(scene);
+	        s1.initModality(Modality.APPLICATION_MODAL);
+	        s1.setTitle("Cadastro de Produto");
+	        s1.show();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 	
 	@FXML
@@ -236,12 +272,39 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	public void onBtnProdutosEstoqueNovaEntradaAction() {
-		System.out.println("Janela de entrada de produtos");
+		try {
+			Stage s1 = new Stage();
+	        Parent root = FXMLLoader.load(getClass().getResource("/gui/EntradaProduto.fxml"));
+	        Scene scene = new Scene(root);
+	        s1.setResizable(false);
+	        s1.setScene(scene);
+	        s1.initModality(Modality.APPLICATION_MODAL);
+	        s1.setTitle("Entrada de Produtos");
+	        s1.show();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 	
 	@FXML
 	public void onBtnProdutosEstoquePesquisarAction() {
 		System.out.println("Exibe resultado da pesquisa nas tabelas estoque");
+	}
+	
+	@FXML
+	public void onBtnProdutosEstoqueDepartamentosAction() {
+		System.out.println("Departamentos");
+	}
+	
+	@FXML
+	public void onBtnProdutosEstoqueSecoesAction() {
+		System.out.println("Seções");
+	}
+	
+	@FXML
+	public void onBtnProdutosEstoqueMarcasAction() {
+		System.out.println("Marcas");
 	}
 	
 	@FXML
@@ -261,7 +324,19 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	public void onBtnClientesNovoAction() {
-		System.out.println("Janela de cadastro de clientes");
+		try {
+			Stage s1 = new Stage();
+	        Parent root = FXMLLoader.load(getClass().getResource("/gui/CadastroCliente.fxml"));
+	        Scene scene = new Scene(root);
+	        s1.setResizable(false);
+	        s1.setScene(scene);
+	        s1.initModality(Modality.APPLICATION_MODAL);
+	        s1.setTitle("Cadastro de Cliente");
+	        s1.show();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 	
 	@FXML
@@ -275,8 +350,20 @@ public class MainViewController implements Initializable{
 	}
 	
 	@FXML
-	public void onbtnFornecedoresNovoAction() {
-		System.out.println("Janela de cadastro de fornecedor");
+	public void onbtnFornecedoresNovoAction()  {
+		try {
+			Stage s1 = new Stage();
+	        Parent root = FXMLLoader.load(getClass().getResource("/gui/CadastroFornec.fxml"));
+	        Scene scene = new Scene(root);
+	        s1.setResizable(false);
+	        s1.setScene(scene);
+	        s1.initModality(Modality.APPLICATION_MODAL);
+	        s1.setTitle("Cadastro de Fornecedor");
+	        s1.show();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 	
 	@FXML
