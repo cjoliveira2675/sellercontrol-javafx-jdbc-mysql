@@ -294,17 +294,53 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	public void onBtnProdutosEstoqueDepartamentosAction() {
-		System.out.println("Departamentos");
+		try {
+			Stage s1 = new Stage();
+	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormDepartamento.fxml"));
+	        Scene scene = new Scene(root);
+	        s1.setResizable(false);
+	        s1.setScene(scene);
+	        s1.initModality(Modality.APPLICATION_MODAL);
+	        s1.setTitle("Departamentos de Produtos");
+	        s1.show();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 	
 	@FXML
 	public void onBtnProdutosEstoqueSecoesAction() {
-		System.out.println("Seções");
+		try {
+			Stage s1 = new Stage();
+	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormSecao.fxml"));
+	        Scene scene = new Scene(root);
+	        s1.setResizable(false);
+	        s1.setScene(scene);
+	        s1.initModality(Modality.APPLICATION_MODAL);
+	        s1.setTitle("Seções de Produtos");
+	        s1.show();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 	
 	@FXML
 	public void onBtnProdutosEstoqueMarcasAction() {
-		System.out.println("Marcas");
+		try {
+			Stage s1 = new Stage();
+	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormMarca.fxml"));
+	        Scene scene = new Scene(root);
+	        s1.setResizable(false);
+	        s1.setScene(scene);
+	        s1.initModality(Modality.APPLICATION_MODAL);
+	        s1.setTitle("Marcas de Produtos");
+	        s1.show();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 	
 	@FXML
