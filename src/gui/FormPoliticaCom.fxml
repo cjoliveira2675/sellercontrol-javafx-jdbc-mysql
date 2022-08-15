@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="237.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FormPoliticaComController">
+   <children>
+      <FlowPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label text="Código">
+               <FlowPane.margin>
+                  <Insets left="10.0" right="5.0" top="15.0" />
+               </FlowPane.margin>
+            </Label>
+            <TextField prefWidth="75.0">
+               <FlowPane.margin>
+                  <Insets right="20.0" top="15.0" />
+               </FlowPane.margin>
+            </TextField>
+            <Label text="Data Inicial">
+               <FlowPane.margin>
+                  <Insets right="5.0" top="15.0" />
+               </FlowPane.margin>
+            </Label>
+            <DatePicker prefWidth="110.0">
+               <FlowPane.margin>
+                  <Insets right="20.0" top="15.0" />
+               </FlowPane.margin>
+            </DatePicker>
+            <Label text="Data Final">
+               <FlowPane.margin>
+                  <Insets right="5.0" top="15.0" />
+               </FlowPane.margin>
+            </Label>
+            <DatePicker prefWidth="110.0">
+               <FlowPane.margin>
+                  <Insets right="30.0" top="15.0" />
+               </FlowPane.margin>
+            </DatePicker>
+            <Label text="Descrição">
+               <FlowPane.margin>
+                  <Insets left="10.0" right="5.0" top="10.0" />
+               </FlowPane.margin>
+            </Label>
+            <TextField prefWidth="481.0">
+               <FlowPane.margin>
+                  <Insets top="10.0" />
+               </FlowPane.margin>
+            </TextField>
+            <CheckBox mnemonicParsing="false" prefWidth="520.0" text="Aplicação automática.">
+               <FlowPane.margin>
+                  <Insets left="10.0" right="15.0" top="15.0" />
+               </FlowPane.margin>
+            </CheckBox>
+            <Label prefWidth="540.0" text="Tipo">
+               <FlowPane.margin>
+                  <Insets left="10.0" right="5.0" top="15.0" />
+               </FlowPane.margin>
+            </Label>
+            <RadioButton mnemonicParsing="false" text="Desconto em R$ até">
+               <FlowPane.margin>
+                  <Insets left="20.0" right="5.0" />
+               </FlowPane.margin>
+            </RadioButton>
+            <TextField prefWidth="80.0">
+               <FlowPane.margin>
+                  <Insets right="300.0" />
+               </FlowPane.margin>
+            </TextField>
+            <RadioButton mnemonicParsing="false" text="Desconto em % até">
+               <FlowPane.margin>
+                  <Insets left="20.0" right="5.0" top="5.0" />
+               </FlowPane.margin>
+            </RadioButton>
+            <TextField prefWidth="80.0">
+               <FlowPane.margin>
+                  <Insets left="3.0" right="300.0" top="2.0" />
+               </FlowPane.margin>
+            </TextField>
+            <Label text="Observação">
+               <FlowPane.margin>
+                  <Insets left="10.0" right="5.0" top="15.0" />
+               </FlowPane.margin>
+            </Label>
+            <TextField prefWidth="470.0">
+               <FlowPane.margin>
+                  <Insets top="15.0" />
+               </FlowPane.margin>
+            </TextField>
+            <Button fx:id="btnFormPoliticaComGravar" mnemonicParsing="false" onAction="#onBtnFormPoliticaComGravarAction" prefWidth="75.0" text="Gravar">
+               <FlowPane.margin>
+                  <Insets bottom="20.0" left="360.0" right="25.0" top="20.0" />
+               </FlowPane.margin>
+            </Button>
+            <Button fx:id="btnFormPoliticaComCancelar" mnemonicParsing="false" onAction="#onBtnFormPoliticaComCancelarAction" prefWidth="75.0" text="Cancelar">
+               <FlowPane.margin>
+                  <Insets />
+               </FlowPane.margin>
+            </Button>
+         </children>
+      </FlowPane>
+   </children>
+</VBox>

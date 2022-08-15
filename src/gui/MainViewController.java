@@ -175,7 +175,19 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	public void onBtnVendasPoliticasComNovaAction() {
-		System.out.println("Janela de cadastro de políticas comerciais");
+		try {
+			Stage s1 = new Stage();
+	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormPoliticaCom.fxml"));
+	        Scene scene = new Scene(root);
+	        s1.setResizable(false);
+	        s1.setScene(scene);
+	        s1.initModality(Modality.APPLICATION_MODAL);
+	        s1.setTitle("Políticas Comerciais");
+	        s1.show();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 	
 	@FXML
@@ -185,12 +197,36 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	public void onBtnVendasPoliticasComCobrancasAction() {
-		System.out.println("Janela de cobranças");
+		try {
+			Stage s1 = new Stage();
+	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormCobranca.fxml"));
+	        Scene scene = new Scene(root);
+	        s1.setResizable(false);
+	        s1.setScene(scene);
+	        s1.initModality(Modality.APPLICATION_MODAL);
+	        s1.setTitle("Cobranças");
+	        s1.show();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 	
 	@FXML
 	public void onBtnVendasPoliticasComPlanosPgtoAction() {
-		System.out.println("Janela de Planos de pagamento");
+		try {
+			Stage s1 = new Stage();
+	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormPlanoPgto.fxml"));
+	        Scene scene = new Scene(root);
+	        s1.setResizable(false);
+	        s1.setScene(scene);
+	        s1.initModality(Modality.APPLICATION_MODAL);
+	        s1.setTitle("Planos de Pagamento");
+	        s1.show();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 	
 	@FXML

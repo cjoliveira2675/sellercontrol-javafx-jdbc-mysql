@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="340.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FormPlanoPgtoController">
+   <children>
+      <HBox prefHeight="34.0" prefWidth="300.0">
+         <children>
+            <Button fx:id="btnFormPlanoPgtoNovo" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtnFormPlanoPgtoNovoAction" prefWidth="50.0" text="Novo">
+               <HBox.margin>
+                  <Insets left="230.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <ScrollPane prefHeight="276.0" prefWidth="300.0">
+        <content>
+          <AnchorPane>
+               <children>
+                  <TableView prefHeight="278.0" prefWidth="284.0">
+                    <columns>
+                      <TableColumn prefWidth="75.2000076174736" text="Código" />
+                      <TableColumn prefWidth="205.5999984741211" text="Nome" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</VBox>
