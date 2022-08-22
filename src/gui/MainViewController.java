@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import gui.util.Utils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,7 +13,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
+import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
 
 public class MainViewController implements Initializable{
@@ -79,6 +83,10 @@ public class MainViewController implements Initializable{
 	@FXML
 	private Button btnProdutosEstoqueMarcas;
 	@FXML
+	private Button btnProdutosEstoqueAjuste;
+	@FXML
+	private Button btnProdutosEstoqueKits;
+	@FXML
 	private Button btnProdutosEstoqueBuscaDepto;
 	@FXML
 	private Button btnProdutosEstoqueBuscaSecao;
@@ -113,7 +121,8 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	public void onMenuItemEmpresaAction() {
-		System.out.println("Dados cadastrais da empresa");
+		Stage parentStage = (Stage) menuItemEmpresa.getParentPopup().getOwnerWindow();
+		newWindow("/gui/FilialView.fxml","Dados Cadastrais", parentStage);
 	}
 	
 	@FXML
@@ -147,20 +156,9 @@ public class MainViewController implements Initializable{
 	}
 	
 	@FXML
-	public void onBtnVendasPedidoVenderAction() {
-		try {
-			Stage s1 = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormPedido.fxml"));
-	        Scene scene = new Scene(root);
-	        s1.setResizable(false);
-	        s1.setScene(scene);
-	        s1.initModality(Modality.APPLICATION_MODAL);
-	        s1.setTitle("Pedido de Venda");
-	        s1.show();
-		}
-		catch (IOException e) {
-			e.getMessage();
-		}
+	public void onBtnVendasPedidoVenderAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/FormPedido.fxml","Pedido", parentStage);
 	}
 	
 	@FXML
@@ -174,20 +172,9 @@ public class MainViewController implements Initializable{
 	}
 	
 	@FXML
-	public void onBtnVendasPoliticasComNovaAction() {
-		try {
-			Stage s1 = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormPoliticaCom.fxml"));
-	        Scene scene = new Scene(root);
-	        s1.setResizable(false);
-	        s1.setScene(scene);
-	        s1.initModality(Modality.APPLICATION_MODAL);
-	        s1.setTitle("Políticas Comerciais");
-	        s1.show();
-		}
-		catch (IOException e) {
-			e.getMessage();
-		}
+	public void onBtnVendasPoliticasComNovaAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/FormPoliticaCom.fxml","Políticas Comerciais", parentStage);
 	}
 	
 	@FXML
@@ -196,37 +183,15 @@ public class MainViewController implements Initializable{
 	}
 	
 	@FXML
-	public void onBtnVendasPoliticasComCobrancasAction() {
-		try {
-			Stage s1 = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormCobranca.fxml"));
-	        Scene scene = new Scene(root);
-	        s1.setResizable(false);
-	        s1.setScene(scene);
-	        s1.initModality(Modality.APPLICATION_MODAL);
-	        s1.setTitle("Cobranças");
-	        s1.show();
-		}
-		catch (IOException e) {
-			e.getMessage();
-		}
+	public void onBtnVendasPoliticasComCobrancasAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/FormCobranca.fxml","Cobranças", parentStage);
 	}
 	
 	@FXML
-	public void onBtnVendasPoliticasComPlanosPgtoAction() {
-		try {
-			Stage s1 = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormPlanoPgto.fxml"));
-	        Scene scene = new Scene(root);
-	        s1.setResizable(false);
-	        s1.setScene(scene);
-	        s1.initModality(Modality.APPLICATION_MODAL);
-	        s1.setTitle("Planos de Pagamento");
-	        s1.show();
-		}
-		catch (IOException e) {
-			e.getMessage();
-		}
+	public void onBtnVendasPoliticasComPlanosPgtoAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/FormPlanoPgto.fxml","Planos de Pagamentos", parentStage);
 	}
 	
 	@FXML
@@ -265,20 +230,9 @@ public class MainViewController implements Initializable{
 	}
 	
 	@FXML
-	public void onBtnProdutosProdutoNovoAction() {
-		try {
-			Stage s1 = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/gui/CadastroProduto.fxml"));
-	        Scene scene = new Scene(root);
-	        s1.setResizable(false);
-	        s1.setScene(scene);
-	        s1.initModality(Modality.APPLICATION_MODAL);
-	        s1.setTitle("Cadastro de Produto");
-	        s1.show();
-		}
-		catch (IOException e) {
-			e.getMessage();
-		}
+	public void onBtnProdutosProdutoNovoAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/CadastroProduto.fxml","Cadastro de Produtos", parentStage);
 	}
 	
 	@FXML
@@ -307,20 +261,9 @@ public class MainViewController implements Initializable{
 	}
 	
 	@FXML
-	public void onBtnProdutosEstoqueNovaEntradaAction() {
-		try {
-			Stage s1 = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/gui/EntradaProduto.fxml"));
-	        Scene scene = new Scene(root);
-	        s1.setResizable(false);
-	        s1.setScene(scene);
-	        s1.initModality(Modality.APPLICATION_MODAL);
-	        s1.setTitle("Entrada de Produtos");
-	        s1.show();
-		}
-		catch (IOException e) {
-			e.getMessage();
-		}
+	public void onBtnProdutosEstoqueNovaEntradaAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/EntradaProduto.fxml","Entrada de Produtos", parentStage);
 	}
 	
 	@FXML
@@ -329,54 +272,33 @@ public class MainViewController implements Initializable{
 	}
 	
 	@FXML
-	public void onBtnProdutosEstoqueDepartamentosAction() {
-		try {
-			Stage s1 = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormDepartamento.fxml"));
-	        Scene scene = new Scene(root);
-	        s1.setResizable(false);
-	        s1.setScene(scene);
-	        s1.initModality(Modality.APPLICATION_MODAL);
-	        s1.setTitle("Departamentos de Produtos");
-	        s1.show();
-		}
-		catch (IOException e) {
-			e.getMessage();
-		}
+	public void onBtnProdutosEstoqueDepartamentosAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/FormDepartamento.fxml","Departamentos", parentStage);
 	}
 	
 	@FXML
-	public void onBtnProdutosEstoqueSecoesAction() {
-		try {
-			Stage s1 = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormSecao.fxml"));
-	        Scene scene = new Scene(root);
-	        s1.setResizable(false);
-	        s1.setScene(scene);
-	        s1.initModality(Modality.APPLICATION_MODAL);
-	        s1.setTitle("Seções de Produtos");
-	        s1.show();
-		}
-		catch (IOException e) {
-			e.getMessage();
-		}
+	public void onBtnProdutosEstoqueSecoesAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/FormSecao.fxml","Seções", parentStage);
 	}
 	
 	@FXML
-	public void onBtnProdutosEstoqueMarcasAction() {
-		try {
-			Stage s1 = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/gui/FormMarca.fxml"));
-	        Scene scene = new Scene(root);
-	        s1.setResizable(false);
-	        s1.setScene(scene);
-	        s1.initModality(Modality.APPLICATION_MODAL);
-	        s1.setTitle("Marcas de Produtos");
-	        s1.show();
-		}
-		catch (IOException e) {
-			e.getMessage();
-		}
+	public void onBtnProdutosEstoqueMarcasAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/FormMarca.fxml","Marcas", parentStage);
+	}
+	
+	@FXML
+	public void onBtnProdutosEstoqueAjusteAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/FormAjusteEstoque.fxml","Ajuste de Estoque", parentStage);
+	}
+	
+	@FXML
+	public void onBtnProdutosEstoqueKitsAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/FormKits.fxml","Kits", parentStage);
 	}
 	
 	@FXML
@@ -395,20 +317,9 @@ public class MainViewController implements Initializable{
 	}
 	
 	@FXML
-	public void onBtnClientesNovoAction() {
-		try {
-			Stage s1 = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/gui/CadastroCliente.fxml"));
-	        Scene scene = new Scene(root);
-	        s1.setResizable(false);
-	        s1.setScene(scene);
-	        s1.initModality(Modality.APPLICATION_MODAL);
-	        s1.setTitle("Cadastro de Cliente");
-	        s1.show();
-		}
-		catch (IOException e) {
-			e.getMessage();
-		}
+	public void onBtnClientesNovoAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/CadastroCliente.fxml","Cadastro de Clientes", parentStage);
 	}
 	
 	@FXML
@@ -422,20 +333,9 @@ public class MainViewController implements Initializable{
 	}
 	
 	@FXML
-	public void onbtnFornecedoresNovoAction()  {
-		try {
-			Stage s1 = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/gui/CadastroFornec.fxml"));
-	        Scene scene = new Scene(root);
-	        s1.setResizable(false);
-	        s1.setScene(scene);
-	        s1.initModality(Modality.APPLICATION_MODAL);
-	        s1.setTitle("Cadastro de Fornecedor");
-	        s1.show();
-		}
-		catch (IOException e) {
-			e.getMessage();
-		}
+	public void onbtnFornecedoresNovoAction(ActionEvent event)  {
+		Stage parentStage = Utils.currentStage(event);
+		newWindow("/gui/CadastroFornec.fxml", "Cadastro de Fornecedores", parentStage);
 	}
 	
 	@FXML
@@ -453,6 +353,24 @@ public class MainViewController implements Initializable{
 	@Override
 	public void initialize(URL uri, ResourceBundle rb) {
 		
+	}
+	
+	private void newWindow(String stageName, String title, Stage parentStage) {
+		try {
+			FXMLLoader root = new FXMLLoader(getClass().getResource(stageName));
+	        Pane pane = root.load();
+	        
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(pane));
+	        stage.setResizable(false);
+	        stage.setTitle(title);
+	        stage.initOwner(parentStage);
+	        stage.initModality(Modality.APPLICATION_MODAL);
+	        stage.showAndWait();
+		}
+		catch (IOException e) {
+			e.getMessage();
+		}
 	}
 
 }

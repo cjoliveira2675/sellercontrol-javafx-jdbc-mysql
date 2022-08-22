@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="340.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FormDepartamentoController">
+   <children>
+      <Label text="Em construção...">
+         <VBox.margin>
+            <Insets left="50.0" top="50.0" />
+         </VBox.margin>
+      </Label>
+   </children>
+</VBox>
