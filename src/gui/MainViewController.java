@@ -1,25 +1,21 @@
 package gui;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import gui.util.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.Pane;
-import javafx.stage.Modality;
-import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
+import model.services.DepartamentoService;
 
 public class MainViewController implements Initializable{
 
+	Utils window = new Utils();
+	
 	@FXML
 	private MenuItem menuItemEmpresa;
 	@FXML
@@ -122,7 +118,7 @@ public class MainViewController implements Initializable{
 	@FXML
 	public void onMenuItemEmpresaAction() {
 		Stage parentStage = (Stage) menuItemEmpresa.getParentPopup().getOwnerWindow();
-		newWindow("/gui/FilialView.fxml","Dados Cadastrais", parentStage);
+		window.newWindow("/gui/FilialView.fxml","Dados Cadastrais", parentStage, x -> {});
 	}
 	
 	@FXML
@@ -158,7 +154,7 @@ public class MainViewController implements Initializable{
 	@FXML
 	public void onBtnVendasPedidoVenderAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/FormPedido.fxml","Pedido", parentStage);
+		window.newWindow("/gui/FormPedido.fxml","Pedido", parentStage, x -> {});
 	}
 	
 	@FXML
@@ -174,7 +170,7 @@ public class MainViewController implements Initializable{
 	@FXML
 	public void onBtnVendasPoliticasComNovaAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/FormPoliticaCom.fxml","Políticas Comerciais", parentStage);
+		window.newWindow("/gui/FormPoliticaCom.fxml","Políticas Comerciais", parentStage, x -> {});
 	}
 	
 	@FXML
@@ -185,13 +181,13 @@ public class MainViewController implements Initializable{
 	@FXML
 	public void onBtnVendasPoliticasComCobrancasAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/FormCobranca.fxml","Cobranças", parentStage);
+		window.newWindow("/gui/FormCobranca.fxml","Cobranças", parentStage, x -> {});
 	}
 	
 	@FXML
 	public void onBtnVendasPoliticasComPlanosPgtoAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/FormPlanoPgto.fxml","Planos de Pagamentos", parentStage);
+		window.newWindow("/gui/FormPlanoPgto.fxml","Planos de Pagamentos", parentStage, x -> {});
 	}
 	
 	@FXML
@@ -232,7 +228,7 @@ public class MainViewController implements Initializable{
 	@FXML
 	public void onBtnProdutosProdutoNovoAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/CadastroProduto.fxml","Cadastro de Produtos", parentStage);
+		window.newWindow("/gui/CadastroProduto.fxml", "Cadastro de Produtos", parentStage, x -> {});
 	}
 	
 	@FXML
@@ -263,7 +259,7 @@ public class MainViewController implements Initializable{
 	@FXML
 	public void onBtnProdutosEstoqueNovaEntradaAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/EntradaProduto.fxml","Entrada de Produtos", parentStage);
+		window.newWindow("/gui/EntradaProduto.fxml","Entrada de Produtos", parentStage, x -> {});
 	}
 	
 	@FXML
@@ -274,31 +270,35 @@ public class MainViewController implements Initializable{
 	@FXML
 	public void onBtnProdutosEstoqueDepartamentosAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/FormDepartamento.fxml","Departamentos", parentStage);
+		window.newWindow("/gui/DepartamentoView.fxml","Departamentos", parentStage, 
+				(DepartamentoViewController controller) -> {
+			controller.setDepartamentoService(new DepartamentoService());
+			controller.updateTableView();
+		});
 	}
 	
 	@FXML
 	public void onBtnProdutosEstoqueSecoesAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/FormSecao.fxml","Seções", parentStage);
+		window.newWindow("/gui/FormSecao.fxml","Seções", parentStage, x -> {});
 	}
 	
 	@FXML
 	public void onBtnProdutosEstoqueMarcasAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/FormMarca.fxml","Marcas", parentStage);
+		window.newWindow("/gui/FormMarca.fxml","Marcas", parentStage, x -> {});
 	}
 	
 	@FXML
 	public void onBtnProdutosEstoqueAjusteAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/FormAjusteEstoque.fxml","Ajuste de Estoque", parentStage);
+		window.newWindow("/gui/FormAjusteEstoque.fxml","Ajuste de Estoque", parentStage, x -> {});
 	}
 	
 	@FXML
 	public void onBtnProdutosEstoqueKitsAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/FormKits.fxml","Kits", parentStage);
+		window.newWindow("/gui/FormKits.fxml","Kits", parentStage, x -> {});
 	}
 	
 	@FXML
@@ -319,7 +319,7 @@ public class MainViewController implements Initializable{
 	@FXML
 	public void onBtnClientesNovoAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/CadastroCliente.fxml","Cadastro de Clientes", parentStage);
+		window.newWindow("/gui/CadastroCliente.fxml","Cadastro de Clientes", parentStage, x -> {});
 	}
 	
 	@FXML
@@ -335,7 +335,7 @@ public class MainViewController implements Initializable{
 	@FXML
 	public void onbtnFornecedoresNovoAction(ActionEvent event)  {
 		Stage parentStage = Utils.currentStage(event);
-		newWindow("/gui/CadastroFornec.fxml", "Cadastro de Fornecedores", parentStage);
+		window.newWindow("/gui/CadastroFornec.fxml", "Cadastro de Fornecedores", parentStage, x -> {});
 	}
 	
 	@FXML
@@ -355,7 +355,7 @@ public class MainViewController implements Initializable{
 		
 	}
 	
-	private void newWindow(String stageName, String title, Stage parentStage) {
+	/*private void newWindow(String stageName, String title, Stage parentStage) {
 		try {
 			FXMLLoader root = new FXMLLoader(getClass().getResource(stageName));
 	        Pane pane = root.load();
@@ -371,6 +371,5 @@ public class MainViewController implements Initializable{
 		catch (IOException e) {
 			e.getMessage();
 		}
-	}
-
+	}*/
 }

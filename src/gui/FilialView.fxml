@@ -10,29 +10,38 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox prefHeight="460.0" prefWidth="440.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+<VBox prefHeight="480.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FilialViewController">
    <children>
-      <FlowPane prefHeight="459.0" prefWidth="438.0">
+      <FlowPane prefHeight="482.0" prefWidth="440.0">
          <children>
             <ButtonBar prefHeight="40.0" prefWidth="434.0">
               <buttons>
                   <Label minWidth="43.0" text="Filial" />
-                  <ComboBox prefWidth="150.0" translateX="-100.0" />
-                <Button mnemonicParsing="false" text="Nova" />
+                  <ComboBox fx:id="cbFilial" prefWidth="150.0" translateX="-100.0" />
+                <Button fx:id="btnNova" mnemonicParsing="false" onAction="#onBtnNovaAction" text="Nova" />
               </buttons>
                <padding>
                   <Insets right="10.0" />
                </padding>
             </ButtonBar>
+            <Label text="Código">
+               <FlowPane.margin>
+                  <Insets left="15.0" right="5.0" top="10.0" />
+               </FlowPane.margin>
+            </Label>
+            <TextField fx:id="codFilial" prefWidth="50.0">
+               <FlowPane.margin>
+                  <Insets right="15.0" top="10.0" />
+               </FlowPane.margin>
+            </TextField>
             <Label text="CNPJ">
                <FlowPane.margin>
                   <Insets left="15.0" right="5.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField>
+            <TextField fx:id="cnpj">
                <FlowPane.margin>
-                  <Insets right="200.0" top="10.0" />
+                  <Insets right="100.0" top="10.0" />
                </FlowPane.margin>
             </TextField>
             <Label text="Razão Social">
@@ -40,7 +49,7 @@
                   <Insets left="15.0" right="5.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="320.0">
+            <TextField fx:id="razaoSocial" prefWidth="320.0">
                <FlowPane.margin>
                   <Insets right="10.0" top="10.0" />
                </FlowPane.margin>
@@ -50,7 +59,7 @@
                   <Insets left="15.0" right="5.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="343.0">
+            <TextField fx:id="fantasia" prefWidth="343.0">
                <FlowPane.margin>
                   <Insets right="15.0" top="10.0" />
                </FlowPane.margin>
@@ -60,7 +69,7 @@
                   <Insets left="15.0" right="5.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="309.0">
+            <TextField fx:id="representante" prefWidth="309.0">
                <FlowPane.margin>
                   <Insets right="10.0" top="10.0" />
                </FlowPane.margin>
@@ -76,7 +85,7 @@
                   <Insets left="15.0" right="3.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="100.0">
+            <TextField fx:id="cep" prefWidth="100.0">
                <FlowPane.margin>
                   <Insets right="10.0" top="10.0" />
                </FlowPane.margin>
@@ -86,7 +95,7 @@
                   <Insets right="3.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="35.0">
+            <TextField fx:id="uf" prefWidth="35.0">
                <FlowPane.margin>
                   <Insets right="10.0" top="10.0" />
                </FlowPane.margin>
@@ -96,7 +105,7 @@
                   <Insets right="3.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="175.0">
+            <TextField fx:id="cidade" prefWidth="175.0">
                <FlowPane.margin>
                   <Insets top="10.0" />
                </FlowPane.margin>
@@ -106,7 +115,7 @@
                   <Insets left="15.0" right="3.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="120.0">
+            <TextField fx:id="bairro" prefWidth="120.0">
                <FlowPane.margin>
                   <Insets right="10.0" top="10.0" />
                </FlowPane.margin>
@@ -116,7 +125,7 @@
                   <Insets right="3.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="224.0">
+            <TextField fx:id="rua" prefWidth="224.0">
                <FlowPane.margin>
                   <Insets top="10.0" />
                </FlowPane.margin>
@@ -126,7 +135,7 @@
                   <Insets left="15.0" right="3.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="45.0">
+            <TextField fx:id="numero" prefWidth="45.0">
                <FlowPane.margin>
                   <Insets right="10.0" top="10.0" />
                </FlowPane.margin>
@@ -136,7 +145,7 @@
                   <Insets right="3.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="269.0">
+            <TextField fx:id="complemento" prefWidth="269.0">
                <FlowPane.margin>
                   <Insets top="10.0" />
                </FlowPane.margin>
@@ -152,7 +161,7 @@
                   <Insets left="15.0" right="3.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="110.0">
+            <TextField fx:id="telefone1" prefWidth="110.0">
                <FlowPane.margin>
                   <Insets right="10.0" top="10.0" />
                </FlowPane.margin>
@@ -162,7 +171,7 @@
                   <Insets right="3.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="110.0">
+            <TextField fx:id="telefone2" prefWidth="110.0">
                <FlowPane.margin>
                   <Insets right="50.0" top="10.0" />
                </FlowPane.margin>
@@ -172,11 +181,21 @@
                   <Insets left="15.0" right="3.0" top="10.0" />
                </FlowPane.margin>
             </Label>
-            <TextField prefWidth="313.0">
+            <TextField fx:id="email" prefWidth="313.0">
                <FlowPane.margin>
-                  <Insets top="10.0" />
+                  <Insets right="30.0" top="10.0" />
                </FlowPane.margin>
             </TextField>
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#onBtnEditarAction" prefWidth="90.0" text="Editar">
+               <FlowPane.margin>
+                  <Insets left="200.0" top="20.0" />
+               </FlowPane.margin>
+            </Button>
+            <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#onBtnSalvarAction" prefWidth="90.0" text="Salvar">
+               <FlowPane.margin>
+                  <Insets left="40.0" top="20.0" />
+               </FlowPane.margin>
+            </Button>
          </children>
       </FlowPane>
    </children>
