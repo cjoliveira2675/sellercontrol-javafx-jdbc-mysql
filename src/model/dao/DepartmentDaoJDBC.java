@@ -128,6 +128,30 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 			DB.closeStatement(st);
 		}
 	}
+	
+	@Override
+	public List<Departamento> findByPiece(String str) {
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = conn.prepareStatement("SELECT * FROM scdepto where nome like \"%"+str+"%\" ORDER BY codigo");
+			rs = st.executeQuery();
+			
+			List<Departamento> list = new ArrayList<>();
+			
+			while (rs.next()) {
+				Departamento dep = instantiateDepartamento(rs);
+				list.add(dep);
+			}
+			return list;
+			
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		} finally {
+			DB.closeResultSet(rs);
+			DB.closeStatement(st);
+		}
+	}
 
 	private Departamento instantiateDepartamento(ResultSet rs) throws SQLException {
 		Departamento dep = new Departamento();

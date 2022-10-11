@@ -14,7 +14,7 @@
    <children>
       <HBox prefHeight="34.0" prefWidth="300.0">
          <children>
-            <TextField fx:id="txtDeptoViewBuscar">
+            <TextField fx:id="txtDeptoViewBuscar" onKeyPressed="#searchWithEnter">
                <HBox.margin>
                   <Insets left="5.0" right="3.0" top="5.0" />
                </HBox.margin>

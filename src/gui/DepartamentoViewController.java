@@ -1,7 +1,6 @@
 package gui;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -24,6 +23,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import model.entities.Departamento;
 import model.services.DepartamentoService;
@@ -58,19 +58,10 @@ public class DepartamentoViewController implements Initializable, DataChangeList
 		if (service == null) {
 			throw new IllegalStateException("service estava vazio");
 		}
-		List<Departamento> list = service.findAll();
-		List<Departamento> sList = new ArrayList<>();
-		for (Departamento d : list) {
-			if (txtDeptoViewBuscar.getText().equals(d.getNome()) || (d.getNome().contains(txtDeptoViewBuscar.getText()) && txtDeptoViewBuscar.getText() != null)) {
-				sList.add(d);
-			}
-			if (txtDeptoViewBuscar.getText() == null || txtDeptoViewBuscar.getText().trim() == ""){
-				updateTableView();
-			}
-				ObservableList<Departamento> obsOne = FXCollections.observableArrayList(sList);
-				tbvDeptoView.setItems(obsOne);
-				System.out.println(obsOne);
-		}
+		List<Departamento> list = service.findByPiece(txtDeptoViewBuscar.getText());
+		ObservableList<Departamento> obsList = FXCollections.observableArrayList(list);
+		tbvDeptoView.setItems(obsList);
+		System.out.println(obsList);
 	}
 
 	@FXML
@@ -81,7 +72,7 @@ public class DepartamentoViewController implements Initializable, DataChangeList
 					controller.setDepartamento(new Departamento());
 					controller.setDepartamentoService(new DepartamentoService());
 					controller.subsDataChangeListener(this);
-					controller.updateForm();
+					//controller.updateForm();
 				});
 	}
 
@@ -109,7 +100,7 @@ public class DepartamentoViewController implements Initializable, DataChangeList
 		tbvDeptoView.setItems(obsList);
 		System.out.println(obsList);
 	}
-	
+
 	public void initButtons() {
 		initButtonEdit(this);
 		initButtonDelete(this);
@@ -128,23 +119,22 @@ public class DepartamentoViewController implements Initializable, DataChangeList
 					setGraphic(null);
 					return;
 				}
-				if (obj.getCodigo() == tbvDeptoView.getSelectionModel().getSelectedItem().getCodigo()){
+				if (obj.getCodigo() == tbvDeptoView.getSelectionModel().getSelectedItem().getCodigo()) {
 					setGraphic(button);
-					
-					button.setOnAction(event ->
-					window.newWindow("/gui/FormDepartamento.fxml", "Cadastrar Departamento",
-						Utils.currentStage(event), (FormDepartamentoController controller) -> {
-							controller.setDepartamento(obj);
-							controller.setDepartamentoService(new DepartamentoService());
-							controller.subsDataChangeListener(e);
-							controller.updateForm();
-						}));
+
+					button.setOnAction(event -> window.newWindow("/gui/FormDepartamento.fxml", "Cadastrar Departamento",
+							Utils.currentStage(event), (FormDepartamentoController controller) -> {
+								controller.setDepartamento(obj);
+								controller.setDepartamentoService(new DepartamentoService());
+								controller.subsDataChangeListener(e);
+								controller.updateForm();
+							}));
 					return;
 				}
 			}
 		});
 	}
-	
+
 	private void initButtonDelete(DataChangeListener e) {
 		tbcDeptoViewRemove.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 		tbcDeptoViewRemove.setCellFactory(param -> new TableCell<Departamento, Departamento>() {
@@ -158,16 +148,16 @@ public class DepartamentoViewController implements Initializable, DataChangeList
 					setGraphic(null);
 					return;
 				}
-				if (obj.getCodigo() == tbvDeptoView.getSelectionModel().getSelectedItem().getCodigo()){
+				if (obj.getCodigo() == tbvDeptoView.getSelectionModel().getSelectedItem().getCodigo()) {
 					setGraphic(button);
-					
+
 					button.setOnAction(event -> removeEntity(obj));
 					return;
 				}
 			}
 		});
 	}
-	
+
 	private void removeEntity(Departamento obj) {
 		Optional<ButtonType> result = Alerts.showConfirmation("Confirmation", "Are you sure to delete?");
 
@@ -178,8 +168,7 @@ public class DepartamentoViewController implements Initializable, DataChangeList
 			try {
 				service.remove(obj);
 				updateTableView();
-			}
-			catch (DbIntegrityException e) {
+			} catch (DbIntegrityException e) {
 				Alerts.showAlert("Error removing object", null, e.getMessage(), AlertType.ERROR);
 			}
 		}
@@ -188,6 +177,13 @@ public class DepartamentoViewController implements Initializable, DataChangeList
 	@Override
 	public void onDataChanged() {
 		updateTableView();
-		// Create alert on successful db inserts.
+	}
+	
+	public void searchWithEnter() {
+		txtDeptoViewBuscar.setOnKeyReleased(event -> {
+			  if (event.getCode() == KeyCode.ENTER){
+				  onbtnDeptoViewBuscarAction();
+				  }
+		});
 	}
 }
